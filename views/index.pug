@@ -1,0 +1,18 @@
+extends layout
+
+block content
+
+  h1 Pitch reservation system
+  p <span class="green-text"> Here you can create pitches, pitch owners and new reservations. Also, all the content that is inside the system can be found and seen.
+
+  h1 Content in the system
+
+  if error
+    p <span class="green-text"> Error getting dynamic content.
+    
+  else
+    ul
+      <span class="green-text">
+      li #[strong Pitches:] !{data.pitch_count}
+      li #[strong Owners:] !{data.owner_count}
+      li #[strong Reservations:] !{data.reservation_count}

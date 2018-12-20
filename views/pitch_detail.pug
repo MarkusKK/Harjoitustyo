@@ -1,0 +1,15 @@
+extends layout
+
+block content
+
+  h1 #{title}: #{pitch.pname}
+  
+  p #[strong Owner:] 
+    a(href=pitch.owner.url) <span class="green-text"> #{pitch.owner.name}
+  p #[strong Description:] #{pitch.description}
+  p #[strong Location:] #{pitch.location}
+
+  hr
+  p
+    a(href=pitch.url+'/delete') <i class="medium material-icons icon-green">delete</i>
+    a(href=pitch.url+'/update') <i class="medium material-icons icon-green">refresh</i>

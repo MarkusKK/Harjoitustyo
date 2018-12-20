@@ -1,0 +1,12 @@
+extends layout
+
+block content
+  h1 #{title}: #{reservation.person_team}
+
+  p Do you really want to delete this Reservation?
+    
+    form(method='POST' action='')
+      div.form-group
+        input#reservationid.form-control(type='hidden',name='reservationid', required='true', value=reservation._id )
+
+      button.btn.btn-primary(type='submit') <i class="medium material-icons ">thumb_up</i>

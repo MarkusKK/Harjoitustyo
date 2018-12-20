@@ -1,0 +1,22 @@
+extends layout
+
+block content
+
+  h1 Owner: #{owner.name}
+  
+  div(style='margin-left:20px;margin-top:20px')
+
+    h4 Pitches
+    
+    dl
+      each pitch in owner_pitches
+        dt 
+          a(href=pitch.url) <span class="green-text"> #{pitch.pname}
+        dd #{pitch.description}
+
+      else
+        p This owner has no pitches.
+
+    hr
+    p
+      a(href=owner.url+'/delete') <i class="medium material-icons icon-green">delete</i>

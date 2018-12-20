@@ -1,0 +1,12 @@
+extends layout
+
+block content
+  h1 #{title}: #{pitch.pname}
+
+  p Do you really want to delete this Pitch?
+    
+    form(method='POST' action='')
+      div.form-group
+        input#pitchid.form-control(type='hidden',name='pitchid', required='true', value=pitch._id )
+
+      button.btn.btn-primary(type='submit') <i class="medium material-icons ">thumb_up</i>

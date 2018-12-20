@@ -1,0 +1,13 @@
+extends layout
+
+block content
+  h1= title
+
+  ul
+    each pitch in pitch_list
+      li 
+        a(href=pitch.url) <span class="green-text"> <h5>#{pitch.pname}</h5> 
+        |  (#{pitch.owner.name})
+
+    else
+      li <span class="green-text"> There are no pitches.

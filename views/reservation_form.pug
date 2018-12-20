@@ -1,0 +1,47 @@
+extends layout
+
+block content
+  h1=title
+
+  form(method='POST' action='')
+    div.form-group
+      label(for='pitch') Pitch:
+      select#pitch.form-control(type='select' placeholder='Select pitch' name='pitch' required='true')
+        for pitch in pitch_list
+          if reservation
+            //- Handle GET form, where reservation.pitch is an object, and POST form, where it is a string.
+            option(
+              value=pitch._id
+              selected=(
+                pitch._id.toString()==reservation.pitch._id
+                || pitch._id.toString()==reservation.pitch
+              ) ? 'selected' : false
+            ) #{pitch.pname}
+          else
+            option(value=pitch._id) #{pitch.pname}
+        
+    div.form-group
+      label(for='person_team') Person or team:
+      input#person_team.form-control(type='text', placeholder='PEPO' name='person_team' required='true' value=(undefined===reservation ? '' : reservation.person_team))
+    div.form-group
+      label(for='year') Year:
+      input#year.form-control(type='text', placeholder='2018' name='year' value=(undefined===reservation ? '' : reservation.year))
+    div.form-group
+      label(for='month') Month:
+      input#month.form-control(type='text', placeholder='December' name='month' value=(undefined===reservation ? '' : reservation.month))
+    div.form-group
+      label(for='day') day:
+      input#day.form-control(type='text', placeholder='17' name='day' value=(undefined===reservation ? '' : reservation.day))
+    div.form-group
+      label(for='start_time') Start time:
+      input#start_time.form-control(type='text', placeholder='18.00' name='start_time' value=(undefined===reservation ? '' : reservation.start_time))
+    div.form-group
+      label(for='end_time') End time:
+      input#end_time.form-control(type='text', placeholder='20.00' name='end_time' value=(undefined===reservation ? '' : reservation.end_time))
+
+    button.btn.btn-primary(type='submit') <i class="medium material-icons">add_box</i>
+
+  if errors 
+    ul
+      for error in errors
+        li!= error.msg

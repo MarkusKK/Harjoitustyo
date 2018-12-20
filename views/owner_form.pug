@@ -1,0 +1,17 @@
+extends layout
+
+block content
+  h1=title
+
+  form(method='POST' action='')
+    div.form-group
+      label(for='name') Name:
+      input#name.form-control(type='text' placeholder='Name (FC Potkupallo)' name='name' required='true' value=(undefined===owner ? '' : owner.name) )
+    div.form-group
+      label(for='year_founded') Year founded:
+      input#year_founded.form-control(type='text', placeholder='1999' name='year_founded' value=(undefined===owner ? '' : owner.year_founded) )
+    button.btn.btn-primary(type='submit') <i class="medium material-icons">add_box</i>
+  if errors 
+    ul
+      for error in errors
+        li!= error.msg

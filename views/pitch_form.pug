@@ -1,0 +1,42 @@
+extends layout
+
+block content
+  h1= title
+
+  form(method='POST' action='')
+    div.form-group
+      label(for='pname') Name:
+      input#title.form-control(type='text', placeholder='Name of the pitch' name='pname' required='true' value=(undefined===pitch ? '' : pitch.pname) )
+    div.form-group
+      label(for='owner') Owner:
+      select#owner.form-control(type='select' placeholder='Select owner' name='owner' required='true' )
+        for owner in owners
+          if pitch
+            //- Handle GET form, where pitch.owner is an object, and POST form, where it is a string.
+            option(
+              value=owner._id
+              selected=(
+                owner._id.toString()==pitch.owner._id
+                || owner._id.toString()==pitch.owner
+              ) ? 'selected' : false
+            ) #{owner.name}
+          else
+            option(value=owner._id) #{owner.name}
+    div.form-group
+      label(for='description') Description:
+      input#summary.form-control(type='text', placeholder='Description' name='description' value=(undefined===pitch ? '' : pitch.description) required='true')
+    div.form-group
+      label(for='city') City:
+      input#title.form-control(type='text', placeholder='Name of the city' name='city' required='true' value=(undefined===pitch ? '' : pitch.city) )
+    div.form-group
+      label(for='street') Street:
+      input#title.form-control(type='text', placeholder='Name of the street' name='street' required='true' value=(undefined===pitch ? '' : pitch.street) )
+    div.form-group
+      label(for='zip_code') Postal code:
+      input#title.form-control(type='text', placeholder='Zip code' name='zip_code' required='true' value=(undefined===pitch ? '' : pitch.zip_code) )  
+    button.btn.btn-primary(type='submit') <i class="medium material-icons">add_box</i>
+
+  if errors 
+    ul
+      for error in errors
+        li!= error.msg

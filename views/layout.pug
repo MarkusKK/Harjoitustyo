@@ -1,0 +1,46 @@
+doctype html
+html(lang='en')
+  head
+    title= title
+    meta(charset='utf-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1')
+    link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css')
+    script(src='https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js')
+    script(src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js')
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    link(rel='stylesheet', href='/stylesheets/style.css')
+  body
+    div(class='container-fluid blue-grey lighten-5 flex')
+      div(class='column')
+        div(class='col-sm-4')
+          block sidebar
+            ul(class='center-align-wrapper')
+              li
+                hr
+              li
+                hr
+              li
+                hr
+              li 
+                a(href='/catalog') <span class="black-text"> <i class="waves-effect waves-green"> <h5>Home</h5></i>
+              li
+                hr
+              li 
+                a(href='/catalog/pitches') <span class="black-text"> <i class="waves-effect waves-green"> <h6>All Pitches</h6></i>
+              li 
+                a(href='/catalog/owners') <span class="black-text"> <i class="waves-effect waves-green"> <h6>All Owners</h6></i>
+              li
+                a(href='/catalog/reservations') <span class="black-text"> <i class="waves-effect waves-green"> <h6>All Reservations</h6></i>
+              li 
+                hr
+              li 
+                a(href='/catalog/pitch/create') <span class="black-text"> <i class="waves-effect waves-green"> <h6>Create New Pitch</h6></i>
+              li 
+                a(href='/catalog/owner/create') <span class="black-text"> <i class="waves-effect waves-green"> <h6>Create New Owner</h6></i>
+              li 
+                a(href='/catalog/reservation/create') <span class="black-text"> <i class="waves-effect waves-green"> <h6>Create New Reservation</h6></i>
+        div(class='col-sm-8')
+          block content
+

@@ -1,0 +1,15 @@
+extends layout
+
+block content
+
+  h1 Person/team: #{reservation.person_team}
+  
+  p #[strong Pitch name:] 
+    a(href=reservation.pitch.url) <span class="green-text"> #{reservation.pitch.pname}
+  p #[strong Reservation date:] #{reservation.reservation_date}
+
+  div(style='margin-left:20px;margin-top:20px')
+
+  hr
+  p
+    a(href=reservation.url+'/delete') <i class="medium material-icons icon-green">delete</i>

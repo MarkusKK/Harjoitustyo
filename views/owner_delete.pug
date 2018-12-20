@@ -1,0 +1,27 @@
+extends layout
+
+block content
+  h1 #{title}: #{owner.name}
+  
+  if owner_pitches.length
+  
+    p #[strong Delete/Change the owner of the following pitches before attempting to delete this owner.]
+  
+    div(style='margin-left:20px;margin-top:20px')
+
+      h4 Pitches
+    
+      dl
+      each pitch in owner_pitches
+        dt 
+          a(href=pitch.url) <span class="green-text"> #{pitch.pname}
+        dd #{pitch.description}
+
+  else
+    p Do you really want to delete this Owner?
+    
+    form(method='POST' action='')
+      div.form-group
+        input#ownerid.form-control(type='hidden',name='ownerid', required='true', value=owner._id )
+
+      button.btn.btn-primary(type='submit') <i class="medium material-icons ">thumb_up</i>

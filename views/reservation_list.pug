@@ -1,0 +1,13 @@
+extends layout
+
+block content
+  h1= title
+  
+  ul
+    each reservation in reservation_list
+      li 
+        a(href=reservation.url) <span class="green-text"> <h5>#{reservation.person_team}</h5> 
+        |  (#{reservation.reservation_date})
+
+    else
+      li <span class="green-text"> There are no reservations.

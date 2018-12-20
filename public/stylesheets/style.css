@@ -1,0 +1,15 @@
+.sidebar-nav {
+    margin-top: 20px;
+    padding: 0;
+    list-style: none;
+}
+
+.flex {
+  display: flex;
+  flex-wrap: wrap;
+  min-height: 100vh;  /*or use calc(100vh - header_height)*/
+}
+
+i.icon-green {
+    color: green;
+}
